@@ -1,0 +1,17 @@
+<!--pages/home/home.wxml-->
+<w-swiper list="{{banners}}" />
+
+<w-recommend recommends="{{recommends}}" bind:imageload ="hangdleImageLoad"></w-recommend>
+
+<w-popular/>
+
+<w-tab-control titles="{{titles}}"
+                bind:tabclick="handleTabClick"
+                id="tab-control"
+                class="{{isTabFixed?'fixed':''}}"/>
+<w-tab-control titles="{{titles}}" wx:if="{{isTabFixed}}"/>
+
+<w-goods goods="{{goods[currentType].list}}"/>
+
+<!-- hidden属性对于自定义组件是无效的 -->
+<w-back-top wx:if="{{showBackTop}}"/>
